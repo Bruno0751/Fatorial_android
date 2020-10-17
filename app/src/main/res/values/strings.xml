@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Fatorial</string>
+    <string name="menuItemAboutApp">Sobre o APP</string>
+    <string name="textViewEllipses">...</string>
+    <string name="text_view_write">Digite Baixo</string>
+    <string name="content_description_exit">Exit</string>
+    <string name="content_description_calculate">Calculate</string>
+</resources>
