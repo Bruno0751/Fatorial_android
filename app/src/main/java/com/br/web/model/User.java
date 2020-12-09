@@ -5,6 +5,7 @@ import android.widget.ImageView;
 public class User {
 
     private ImageView exit, calculate;
+    private double valor, resposta = 1;
 
     public User() {
     }
@@ -23,5 +24,21 @@ public class User {
 
     public void setCalculate(ImageView calculate) {
         this.calculate = calculate;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public double getResposta() {
+        return resposta;
+    }
+
+    public void setResposta(double resposta) {
+        this.resposta = resposta;
     }
 }

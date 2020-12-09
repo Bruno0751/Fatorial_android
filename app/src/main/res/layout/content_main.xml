@@ -19,27 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextViewFinder"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:labelFor="@id/textViewWrite"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWrite"
-        android:textSize="17sp" />
-
     <ImageView
         android:id="@+id/imageViewCalculate"
         android:layout_width="0dp"
         android:layout_height="74dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/content_description_calculate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextViewFinder"
         app:srcCompat="@drawable/calculate"
@@ -50,28 +37,37 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="110dp"
+        android:gravity="center"
         android:text="@string/text_view_write"
+        android:textAlignment="center"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResult"
-        android:textSize="17sp"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 
     <ImageView
         android:id="@+id/imageViewExit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/content_description_exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCalculate"
-        app:layout_constraintVertical_bias="0.966"
-        android:contentDescription="@string/content_description_exit"
         app:srcCompat="@drawable/exit"
         tools:ignore="VectorDrawableCompat" />
+
+    <EditText
+        android:id="@+id/editTextViewFinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/textViewWrite"
+        app:layout_constraintStart_toStartOf="@+id/textViewWrite"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWrite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,8 +23,8 @@ import android.widget.Toast;
 public class Main extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = "Main";
-    User objUser = new User();
-    Screen objScreen = new Screen();
+    private User objUser = new User();
+    private Screen objScreen = new Screen();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,38 +72,59 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             msg.setMessage("Em Breve");
             msg.show();
             break;
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onClick(View v) {
-
         if(v == objUser.getExit()){
             finish();
         }else if(v == objUser.getCalculate()){
-
-            int valor, resposta = 1;
-
-            valor = Integer.parseInt(objScreen.getViewFinder().getText().toString());
-
             /*
-            objProgram.setValor(Integer.parseInt(objScreen.getViewFinder().getText().toString()));
-            for(int i = 0; objProgram.getValor() >= 1; i --){
-                objProgram.setResposta(objProgram.getValor());
+            objUser.setValor(Integer.parseInt(objScreen.getViewFinder().getText().toString()));
+            for(int i = 0; objUser.getValor() >= 1; i --){
+                objUser.setResposta(objUser.getValor());
             }
             objScreen.getResult().setText(String.valueOf(objProgram.getResposta()));
              */
 
-            for( ; valor >= 1; valor--){
-                resposta *= valor;
-            }
-            objScreen.getResult().setText(String.valueOf(resposta));
+            try {
+                double valor, resposta = 1;
+                valor = Double.parseDouble(objScreen.getViewFinder().getText().toString());
 
-            Toast msg = Toast.makeText(Main.this, "Fator", Toast.LENGTH_LONG);
-            msg.show();
+                if(valor > 170) {
+
+                    AlertDialog.Builder msg = new AlertDialog.Builder(Main.this);
+                    msg.setTitle("ERRO");
+                    msg.setMessage("Valor Inválido");
+                    msg.setNeutralButton("OK", null);
+                    msg.show();
+                }else {
+
+                    for (; valor >= 1; valor--) {
+                        resposta *= valor;
+                    }
+                }
+
+                if (resposta == 0){
+                    objScreen.getResult().setText(String.valueOf("Erro"));
+                    Toast msg = Toast.makeText(Main.this, "ERRO", Toast.LENGTH_LONG);
+                    msg.show();
+                }else{
+                    objScreen.getResult().setText(String.valueOf(resposta));
+                    Toast msg = Toast.makeText(Main.this, "Fator", Toast.LENGTH_LONG);
+                    msg.show();
+                }
+            }catch (Exception erro){
+
+                AlertDialog.Builder msg = new AlertDialog.Builder(Main.this);
+                msg.setTitle("ERRO");
+                msg.setMessage("Tipo: " + erro);
+                msg.setNeutralButton("Falha",  null);
+                msg.show();
+
+            }
         }
     }
 }
